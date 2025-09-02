@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ID Card Generator BY VISHAL HACKER</title>
+    <!-- Include jsPDF and html2canvas libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- Include Cropper.js for image cropping -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
+    <link rel="stylesheet"href="style.css">
+   
+</head>
+<body>
+    <div class="container">
+        <h1>ID Card Generator</h1>
+        <form id="idCardForm">
+            <div class="form-group">
+                <label for="companyName">Company Name (Optional) { @Linxx_Aman } </label>
+                <input type="text" id="companyName" placeholder="Enter company name">
+            </div>
+        
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" required>
+                <div id="nameError" class="error"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="idNumber">ID Number</label>
+                <input type="text" id="idNumber" required>
+                <div id="idError" class="error"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="address" required></textarea>
+                <div id="addressError" class="error"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" required>
+                <div id="dobError" class="error"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="photo">Upload Photo</label>
+                <input type="file" id="photo" accept="image/*" required>
+                <div id="photoPreview" class="preview"></div>
+                <div id="photoError" class="error"></div>
+            </div>
+            
+            <button type="submit">Generate ID Card</button>
+        </form>
+        
+        <div id="idCardTemplate" class="hidden">
+            <div class="id-card">
+                <div class="id-header">
+                    <h2 id="idCardCompanyName">OFFICIAL ID CARD</h2>
+                </div>
+                <div class="id-body">
+                    <div class="photo-container">
+                        <img id="cardPhoto" src="" alt="ID Photo">
+                    </div>
+                    <div class="details">
+                        <p><strong>Name:</strong> <span id="cardName"></span></p>
+                        <p><strong>ID:</strong> <span id="cardId"></span></p>
+                        <p><strong>DOB:</strong> <span id="cardDob"></span></p>
+                        <p><strong>Address:</strong> <span id="cardAddress"></span></p>
+                    </div>
+                </div>
+                <div class="id-footer">
+                    <p>This ID is the property of the issuing organization</p>
+                </div>
+            </div>
+            
+            <div class="download-options">
+                <button id="downloadImgBtn" class="btn-blue">Download as Image</button>
+                <button id="downloadPdfBtn" class="btn-purple">Download as PDF</button>
+            </div>
+            
+            <button id="newCardBtn">Create New ID Card</button>
+        </div>
+    </div>
+
+    <!-- Cropper Modal -->
+    <div id="cropperModal">
+        <div id="cropperModalContent">
+            <h2>Crop Your Photo</h2>
+            <img id="cropperImage" src="" alt="Image to crop">
+            <button id="cropButton">Crop Image</button>
+            <button id="cancelCrop">Cancel</button>
+        </div>
+    </div>
+
+    <script src="love.js">
+       
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+    
